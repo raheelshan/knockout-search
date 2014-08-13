@@ -167,10 +167,10 @@ Now the object is available. we can easily search.
 <h5>For multiple custom values this will not work and bring undesired results</h5>
 <pre>
 	self.Search()
-			.filter({Price:{value:200,condition:'>'},Id:{value:15,condition:'<'}})
+			.filter({Price:{value:200,condition:'>'},Id:{value:15,condition:'&#60;'}})
 			.stringify()    
 	self.Search()
-			.filter({Price:{value:200,condition:'>'}},{Id:{value:15,condition:'<'}})
+			.filter({Price:{value:200,condition:'>'}},{Id:{value:15,condition:'&#60;'}})
 			.stringify()   		
 </pre>
 
