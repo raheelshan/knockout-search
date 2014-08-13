@@ -127,7 +127,7 @@ Now the object is available. we can easily search.
 </pre>
 
 <h4>And and Or codition to filter records</h4>
-<h5>Search where Price = 200 and Id = 1 Or Rate = 16</h5>
+<h5>Search where Price = 200 and Id = 1 Or Id = 16</h5>
 
 <pre>
 	self.Search()
