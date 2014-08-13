@@ -160,7 +160,7 @@ Now the object is available. we can easily search.
 <pre>
 	self.Search()
 			.filter({Price:{value:200,condition:'>'}})
-			.filter({Id:{value:15,condition:'&<'}})
+			.filter({Id:{value:15,condition:'&#60;'}})
 			.stringify()    
 </pre>
 
