@@ -264,7 +264,9 @@ Now the object is available. we can easily search.
 <h4>Tempalte Functions</h4>
 <h5>supplant() function will be applied on each object of data. Takes html template string</h5>
 ```html
-	self.Search().supplant('<option id={Id} data-rate='{Rate}' data-price='{Price}'>{Name}</option>').stringify()
+	self.Search()
+			.supplant('<option id={Id} data-rate='{Rate}' data-price='{Price}'>{Name}</option>')
+			.stringify()
 ```
 
 <h5>In each object a new property template will be added which will have html string</h5>
