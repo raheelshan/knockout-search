@@ -126,10 +126,8 @@ Now the object is available. we can easily search.
 			.stringify()    
 </pre>
 
-<h4>And and Or codition to filter records    </h4>
-<p>
-	Search where Price = 200 and Id = 1 Or Rate = 16    
-</p>
+<h4>And and Or codition to filter records</h4>
+<h5>Search where Price = 200 and Id = 1 Or Rate = 16</h5>
 
 <pre>
 	self.Search()
@@ -162,7 +160,7 @@ Now the object is available. we can easily search.
 <pre>
 	self.Search()
 			.filter({Price:{value:200,condition:'>'}})
-			.filter({Id:{value:15,condition:'<'}})
+			.filter({Id:{value:15,condition:\'<\'}})
 			.stringify()    
 </pre>
 
