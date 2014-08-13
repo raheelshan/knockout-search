@@ -1,0 +1,244 @@
+<html>
+	<head>
+		<script src="jquery.js"></script>
+		<script src="knockout-3.1.0.js"></script>
+		<script src="knockout.mapping.js"></script>
+		<script src="knockout.search.js"></script>
+		
+		<script>
+			var books = function(data){
+				var self = this
+				self.Id 		=	ko.observable(data.Id)
+				self.Rate 		=	ko.observable(data.Rate)
+				self.Price 		=	ko.observable(data.Price)
+				self.Name 		=	ko.observable(data.Name)
+			}	
+
+			var page = function(){
+				var self = this
+				self.Books = ko.observableArray([])
+				self.db = ko.observable()
+
+				self.LoadData = function () {
+
+					var booksArray = [	
+						{Id:1,Rate:5,Price:200,Name:"History"},
+						{Id:2,Rate:5,Price:150,Name:"Geographic"},
+						{Id:3,Rate:1,Price:75,Name:"Maths"},
+						{Id:4,Rate:2,Price:50,Name:"Statistics"},
+						{Id:5,Rate:3,Price:120,Name:"Drawing"},
+						{Id:6,Rate:2,Price:100,Name:"Arts"},
+						{Id:7,Rate:3,Price:110,Name:"Chemistry"},
+						{Id:8,Rate:4,Price:160,Name:"Biology"},
+						{Id:9,Rate:4,Price:90,Name:"Software Engineering"},
+						{Id:10,Rate:4,Price:80,Name:"Algorithm"},
+						{Id:11,Rate:1,Price:85,Name:"Urdu"},
+						{Id:12,Rate:1,Price:110,Name:"International Relations"},
+						{Id:13,Rate:1,Price:120,Name:"Physics"},
+						{Id:14,Rate:3,Price:230,Name:"Electronics"},
+						{Id:15,Rate:3,Price:250,Name:"Jihad"},
+						{Id:16,Rate:3,Price:200,Name:"Functional Programming"},
+						{Id:17,Rate:2,Price:190,Name:"Computer Science"},
+						{Id:18,Rate:2,Price:50,Name:"Problem solving Techniques"},
+						{Id:19,Rate:6,Price:150,Name:"C#"},
+						{Id:20,Rate:7,Price:250,Name:"ASP.Net"}
+					]
+					self.Books(booksArray)
+
+					//var book = JSON.stringify(ko.mapping.toJS(self.Books()))
+					self.db(ko.search.setData(self.Books()))
+
+					console.log('Get all records')
+					/*	
+					console.log(self.db().get())
+					console.log(self.db().get(true))					
+					*/
+					console.log(self.db().stringify())
+					console.log('Get first record')
+					/*
+					console.log(self.db().first().get())
+					console.log(self.db().first().get(true))
+					*/
+					console.log(self.db().first().stringify())
+					console.log('Get last record')
+					/*
+					console.log(self.db().last().get())
+					console.log(self.db().last().get(true))
+					*/
+					console.log(self.db().last().stringify())					
+					console.log('Get limited records in array format')
+					/*
+					console.log(self.db().limit(2).get())
+					console.log(self.db().limit(2).get(true))
+					*/	
+					console.log(self.db().limit(2).stringify())					
+
+					console.log('Get from specific index in array format')
+					/*
+					console.log(self.db().start(8).get())
+					console.log(self.db().start(8).get(true))
+					*/	
+					console.log(self.db().start(8).stringify())					
+					console.log('Get from specific index with limited records in array format')
+					/*
+					console.log(self.db().start(8).limit(2).get())
+					console.log(self.db().start(8).limit(2).get(true))
+					*/						
+					console.log(self.db().start(8).limit(2).stringify())
+
+					
+					//	Simple Condition	
+					console.log('Simple codition to filter records')
+					/*
+					console.log(self.db().filter({Price:200}).get())
+					console.log(self.db().filter({Price:200}).get(true))
+					*/
+					console.log(self.db().filter({Price:200}).stringify())
+					//	Simple And Condition 	
+					console.log('Simple and codition to filter records')
+					/*
+					console.log(self.db().filter({Price:200,Rate:5}).get())
+					console.log(self.db().filter({Price:200,Rate:5}).get(true))
+					*/
+					console.log(self.db().filter({Price:200,Rate:5}).stringify())
+
+					// Simple Or Condition
+					console.log('Simple or codition to filter records')
+					/*
+					console.log(self.db().filter({Rate:[4,5]}).get())
+					console.log(self.db().filter({Rate:[4,5]}).get(true))
+					*/
+					console.log(self.db().filter({Rate:[4,5]}).stringify())
+					//	And and or condition
+					console.log('And and Or codition to filter records')
+					/*
+					console.log(self.db().filter({Price:200,Id:[1,16]}).get())
+					console.log(self.db().filter({Price:200,Id:[1,16]}).get(true))
+					*/
+					console.log(self.db().filter({Price:200,Id:[1,16]}).stringify())
+					//	And and Or condition
+					console.log('And and Or codition to filter records')
+					/*
+					console.log(self.db().filter({Rate:[4,5],Price:200}).get())
+					console.log(self.db().filter({Rate:[4,5],Price:200}).get(true))
+					*/
+					console.log(self.db().filter({Rate:[4,5],Price:200}).stringify())
+					// filter with custom value
+					console.log('filter with custom value')
+					/*
+					console.log(self.db().filter({Rate:{value:4,condition:">"}}).get())
+					console.log(self.db().filter({Rate:{value:4,condition:">"}}).get(true))
+					*/
+					console.log(self.db().filter({Rate:{value:4,condition:">"}}).stringify(true))
+					// filter Chaining			
+					console.log('And and Or coditions can be used using chaining method')
+					/*
+					console.log(self.db().filter({Rate:[4,5]}).filter({Id:{value:8,condition:">"}}).get())
+					console.log(self.db().filter({Rate:[4,5]}).filter({Id:{value:8,condition:">"}}).get(true))
+					*/
+					console.log(self.db().filter({Rate:[4,5]}).filter({Id:{value:8,condition:">"}}).stringify())
+					// filter with multiple custom values
+					console.log('For multiple custom values only chaining method will work')
+					/*
+					console.log(self.db().filter({Price:{value:200,condition:">"}}).filter({Id:{value:15,condition:"<"}}).get())
+					console.log(self.db().filter({Price:{value:200,condition:">"}}).filter({Id:{value:15,condition:"<"}}).get(true))
+					/*	Wont work	*/
+					console.log("Won't work")
+					console.log(self.db().filter({Price:{value:200,condition:">"}}).filter({Id:{value:15,condition:"<"}}).stringify())
+					/*
+					console.log('For multiple custom values this will not work and bring undesired results')
+					console.log(self.db().filter({Price:{value:200,condition:">"},Id:{value:15,condition:"<"}}).stringify())
+					*/
+					console.log(self.db().filter({Price:{value:200,condition:">"}},{Id:{value:15,condition:"<"}}).stringify())
+
+					//	select specific columns
+					console.log('Select specific columns. Note the Order')
+					/*
+					console.log(self.db().select(["Name","Price"]).get())
+					console.log(self.db().select(["Name","Price"]).get(true))
+					*/
+					console.log(self.db().select(["Name","Price"]).stringify())
+					
+					// with filter use after filter select for fast search
+					console.log('First filter records then use select although you are free to use any')
+					/*
+					console.log(self.db().filter({Price:{value:200,condition:">"},Id:{value:8,condition:">"}}).select(["Name","Price"]).get())
+					console.log(self.db().filter({Price:{value:200,condition:">"},Id:{value:8,condition:">"}}).select(["Name","Price"]).get(true))
+					*/
+					console.log(self.db().filter({Price:{value:200,condition:">"},Id:{value:8,condition:">"}}).select(["Name","Price"]).stringify())
+					// get max
+					console.log('Get Records with MAX property')
+					/*
+					console.log(self.db().max("Rate").get())
+					console.log(self.db().max("Rate").get(true))
+					*/
+					console.log(self.db().max("Rate").stringify())
+					console.log(self.db().max("Rate").index(2).stringify())
+					// get min
+					console.log('Get Records with MIN property')
+					/*
+					console.log(self.db().min("Rate").get())
+					console.log(self.db().min("Rate").get(true))
+					*/
+					console.log(self.db().min("Rate").stringify())				
+					console.log(self.db().min("Rate").index(2).stringify())
+					
+					// sort records
+					console.log('Sort Records with property')
+					/*
+					console.log(self.db().order("Rate").get())
+					console.log(self.db().order("Rate").get(true))
+					// Multiple Sort
+					*/					
+					console.log(self.db().order("Rate").stringify())
+					console.log(self.db().order("Rate").order('Id',true).stringify())
+
+					/*	Apply Callback	*/
+					console.log('Apply Callback')
+					console.log(self.db().callback(function(){
+						self.db().userData().push({Id:21,Rate:8,Price:400,Name:"Myths"})
+					}).stringify())
+					/*
+					*/
+					/*	Apply single function to each object of array	*/
+					console.log('Apply map')
+					console.log(self.db().map(function(item){
+						item.Action = true
+					}).stringify())		
+					/*
+					*/
+					/*	Apply multiple functions to each object of array	*/
+					console.log('Apply each')
+					var func = [
+						function(item){return item.Action = item.Price > 200},
+						function(item){item.Level = 'High'},
+					]
+					console.log(self.db().each(func).stringify(true))
+
+					/*	Generate Template	*/
+					console.log('Apply supplant to each object of array')
+					/*
+					console.log(self.db().supplant('<option id={Id}>{Name}</option>').get(true))
+					*/
+					console.log(self.db().supplant('<option id={Id} data-rate="{Rate}" data-price="{Price}">{Name}</option>').stringify())
+				}
+
+				self.LoadData()
+			}
+
+
+			$('document').ready(function(){
+				ko.applyBindings(new page())
+			})
+
+		</script>
+
+	</head>
+	<body>
+
+	
+
+	<h2>See Console for result</h2>
+
+	</body>
+</html>
