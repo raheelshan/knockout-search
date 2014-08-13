@@ -105,19 +105,25 @@ Now the object is available. we can easily search.
 <h4>Simple codition to filter records    </h4>
 <h5>Search where Price = 200</h5>
 <pre>
-	self.Search().filter({Price:200}).stringify()    
+	self.Search()
+			.filter({Price:200})
+			.stringify()    
 </pre>
 
 <h4>Simple and codition to filter records</h4>
 <h5>Search where Price = 200 and Rate = 5</h5>
 <pre>
-	self.Search().filter({Price:200,Rate:5}).stringify()    
+	self.Search()
+			.filter({Price:200,Rate:5})
+			.stringify()    
 </pre>
 
 <h4>Simple or codition to filter records</h4>
 <h5>Search where Rate = 4 or Rate = 5</h5>
 <pre>
-	self.Search().filter({Rate:[4,5]}).stringify()    
+	self.Search()
+			.filter({Rate:[4,5]})
+			.stringify()    
 </pre>
 
 <h4>And and Or codition to filter records    </h4>
@@ -126,32 +132,48 @@ Now the object is available. we can easily search.
 </p>
 
 <pre>
-	self.Search().filter({Price:200,Id:[1,16]}).stringify() // Or    
-	self.Search().filter({Id:[1,16],Price:200}).stringify()    
+	self.Search()
+			.filter({Price:200,Id:[1,16]})
+			.stringify() // Or    
+	self.Search()
+			.filter({Id:[1,16],Price:200})
+			.stringify()    
 </pre>
 
 <h4>Filter with custom value</h4>
 <h5>Search where Rate > 4</h5>
 <pre>
-	self.Search().filter({Rate:{value:4,condition:'>'}}).stringify()    
+	self.Search()
+			.filter({Rate:{value:4,condition:'>'}})
+			.stringify()    
 </pre>
 
 <h4>Filter Chaining	</h4>
 <h5>And and Or coditions can be used using chaining method</h5>
 <pre>
-	self.Search().filter({Rate:[4,5]}).filter({Id:{value:8,condition:'>'}}).stringify()    
+	self.Search()
+			.filter({Rate:[4,5]})
+			.filter({Id:{value:8,condition:'>'}})
+			.stringify()    
 </pre>
 
 <h4>Filter with multiple custom values</h4>
 <h5>For multiple custom values only chaining method will work</h5>
 <pre>
-	self.Search().filter({Price:{value:200,condition:'>'}}).filter({Id:{value:15,condition:'<'}}).stringify()    
+	self.Search()
+			.filter({Price:{value:200,condition:'>'}})
+			.filter({Id:{value:15,condition:'<'}})
+			.stringify()    
 </pre>
 
 <h5>For multiple custom values this will not work and bring undesired results</h5>
 <pre>
-	self.Search().filter({Price:{value:200,condition:'>'},Id:{value:15,condition:'<'}}).stringify()    
-	self.Search().filter({Price:{value:200,condition:'>'}},{Id:{value:15,condition:'<'}}).stringify()   		
+	self.Search()
+			.filter({Price:{value:200,condition:'>'},Id:{value:15,condition:'<'}})
+			.stringify()    
+	self.Search()
+			.filter({Price:{value:200,condition:'>'}},{Id:{value:15,condition:'<'}})
+			.stringify()   		
 </pre>
 
 <h3>Selecting Record Columns</h3>
@@ -164,7 +186,10 @@ Now the object is available. we can easily search.
 
 <h5>If you need any column in filter you must use it in select. With filter, use select after filter for fast search</h5>
 <pre>
-	self.Search().filter({Price:{value:200,condition:'>'}}).select(['Name','Price']).stringify()    
+	self.Search()
+			.filter({Price:{value:200,condition:'>'}})
+			.select(['Name','Price'])
+			.stringify()    
 </pre>
 
 <p>
@@ -211,13 +236,21 @@ Now the object is available. we can easily search.
 <h4>Apply callback</h4>
 <h5>userData() is the data you provided</h5>
 <pre>
-	self.Search().callback(function(){self.db().userData().push({Id:21,Rate:8,Price:400,Name:'Myths'})}).stringify()    
+	self.Search()
+		.callback(function(){
+			self.db().userData().push({Id:21,Rate:8,Price:400,Name:'Myths'})
+		})
+		.stringify()    
 </pre>
 
 <h4>Apply Map Function</h4>
 <h5>map() function will be applied on each object of data. Same like javascript map</h5>
 <pre>
-	self.Search().map(function(item){item.Action = true}).stringify()    
+	self.Search()
+		.map(function(item){
+			item.Action = true
+		})
+		.stringify()    
 </pre>
 
 <h4>Apply multiple Functions</h4>
