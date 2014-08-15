@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Knockout-search by raheelshan</title>
@@ -12,71 +12,382 @@
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+</head>
+<body>
 
-  </head>
-  <body>
-
-      <header>
+    <header>
         <h1>Knockout-search</h1>
         <p>A plugin that makes search friendly for observable arrays in knockoutjs</p>
-      </header>
+    </header>
 
-      <div id="banner">
+    <div id="banner">
         <span id="logo"></span>
 
         <a href="https://github.com/raheelshan/knockout-search" class="button fork"><strong>View On GitHub</strong></a>
         <div class="downloads">
-          <span>Downloads:</span>
-          <ul>
-            <li><a href="https://github.com/raheelshan/knockout-search/zipball/master" class="button">ZIP</a></li>
-            <li><a href="https://github.com/raheelshan/knockout-search/tarball/master" class="button">TAR</a></li>
-          </ul>
+            <span>Downloads:</span>
+            <ul>
+                <li><a href="https://github.com/raheelshan/knockout-search/zipball/master" class="button">ZIP</a></li>
+                <li><a href="https://github.com/raheelshan/knockout-search/tarball/master" class="button">TAR</a></li>
+            </ul>
         </div>
-      </div><!-- end banner -->
+    </div>
+    <!-- end banner -->
 
     <div class="wrapper">
-      <nav>
-        <ul></ul>
-      </nav>
-      <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+        <article class="markdown-body entry-content" itemprop="mainContentOfPage" style="margin-top: 200px !important;">
+            <h1>
+                <a name="user-content-knockout-search-js" class="anchor" href="#knockout-search-js" aria-hidden="true"><span class="octicon octicon-link"></span></a>knockout-search-js</h1>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+            <p><strong>A Plugin to make search friendly</strong></p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+            <p>This plugin is useful for search</p>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+            <h2>
+                <a name="user-content-dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies:</h2>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+            <ul class="task-list">
+                <li>KnockoutJS (2.2.0+) - <a href="http://knockoutjs.com/">http://knockoutjs.com/</a> </li>
+                <li>Knockout Mapping Plugin</li>
+            </ul>
+            <h2>
+                <a name="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+            <p>Create a variable and pass the observable array to database object</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+            <pre>    var myobject = ko.search.setData(self.Books())    
+    self.Search(myobject)
+</pre>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+            <p>Now the object is available. we can easily search. </p>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+            <h2>
+                <a name="user-content-how-to-provide-input" class="anchor" href="#how-to-provide-input" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to provide input</h2>
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+            <p>Three types of inputs can be provided.</p>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>Project maintained by <a href="https://github.com/raheelshan">raheelshan</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
-      </footer>
+            <ul class="task-list">
+                <li>Observable Array</li>
+                <li>Array of objects</li>
+                <li>JSON String of array of objects</li>
+            </ul>
+            <pre>    var myobject = ko.search.setData(self.Books()) // obervableArray    
+    var myobject = ko.search.setData(books) // Array of objects    
+    var myobject = ko.search.setData(booksJson) // json string 
+</pre>
+
+            <h2>
+                <a name="user-content-how-to-obtain-search-results" class="anchor" href="#how-to-obtain-search-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to obtain search results</h2>
+
+            <p>Search results are easy to obtain in three ways.</p>
+
+            <ul class="task-list">
+                <li>Observable Array</li>
+                <li>Array of objects</li>
+                <li>JSON String</li>
+            </ul>
+            <pre>    self.Search().get() // returns observable array      
+    self.Search().get(true) // returns array of objects       
+    self.Search().stringify() // returns array of objects in json string    
+</pre>
+
+            <p>Note : If you pass array of objects as parameter you will get array of objects instead of observable array in first example using .get()</p>
+
+            <p>Note : I will be using `.stringify()` in the later example but you can choose any</p>
+
+            <h2>
+                <a name="user-content-function-reference" class="anchor" href="#function-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Function Reference</h2>
+
+            <h3>
+                <a name="user-content-getting-records" class="anchor" href="#getting-records" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Records</h3>
+
+            <h4>
+                <a name="user-content-get-all-records" class="anchor" href="#get-all-records" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get All Records</h4>
+
+            <pre>    self.Search().get()  // Or     
+    self.Search().get(true) // Or    
+    self.Search().stringify()    
+</pre>
+
+            <h4>
+                <a name="user-content-get-first-record" class="anchor" href="#get-first-record" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get first record</h4>
+
+            <pre>    self.Search().first().stringify()
+</pre>
+
+            <h4>
+                <a name="user-content-get-last-record----" class="anchor" href="#get-last-record----" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get last record    </h4>
+
+            <pre>    self.Search().last().stringify()
+</pre>
+
+            <h4>
+                <a name="user-content-get-records-in-array-format-starting-from-index--2" class="anchor" href="#get-records-in-array-format-starting-from-index--2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get records in array format starting from index  2</h4>
+
+            <pre>    self.Search().start(2).stringify()
+</pre>
+
+            <h4>
+                <a name="user-content-get-limited-records-in-array-format-starting-from-0-index" class="anchor" href="#get-limited-records-in-array-format-starting-from-0-index" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get limited records in array format starting from 0 index</h4>
+
+            <pre>    self.Search().limit(2).stringify()
+</pre>
+
+            <h4>
+                <a name="user-content-get-from-specific-index-with-limited-records-in-array-format" class="anchor" href="#get-from-specific-index-with-limited-records-in-array-format" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get from specific index with limited records in array format</h4>
+
+            <pre>    self.Search().start(8).limit(2).stringify()
+</pre>
+
+            <h3>
+                <a name="user-content-searching-records" class="anchor" href="#searching-records" aria-hidden="true"><span class="octicon octicon-link"></span></a>Searching Records</h3>
+
+            <h4>
+                <a name="user-content-simple-codition-to-filter-records----" class="anchor" href="#simple-codition-to-filter-records----" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple codition to filter records    </h4>
+
+            <h5>
+                <a name="user-content-search-where-price--200" class="anchor" href="#search-where-price--200" aria-hidden="true"><span class="octicon octicon-link"></span></a>Search where Price = 200</h5>
+
+            <pre>    self.Search()
+            .filter({Price:200})
+            .stringify()    
+</pre>
+
+            <h4>
+                <a name="user-content-simple-and-codition-to-filter-records" class="anchor" href="#simple-and-codition-to-filter-records" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple and codition to filter records</h4>
+
+            <h5>
+                <a name="user-content-search-where-price--200-and-rate--5" class="anchor" href="#search-where-price--200-and-rate--5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Search where Price = 200 and Rate = 5</h5>
+
+            <pre>    self.Search()
+            .filter({Price:200,Rate:5})
+            .stringify()    
+</pre>
+
+            <h4>
+                <a name="user-content-simple-or-codition-to-filter-records" class="anchor" href="#simple-or-codition-to-filter-records" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple or codition to filter records</h4>
+
+            <h5>
+                <a name="user-content-search-where-rate--4-or-rate--5" class="anchor" href="#search-where-rate--4-or-rate--5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Search where Rate = 4 or Rate = 5</h5>
+
+            <pre>    self.Search()
+            .filter({Rate:[4,5]})
+            .stringify()    
+</pre>
+
+            <h4>
+                <a name="user-content-and-and-or-codition-to-filter-records" class="anchor" href="#and-and-or-codition-to-filter-records" aria-hidden="true"><span class="octicon octicon-link"></span></a>And and Or codition to filter records</h4>
+
+            <h5>
+                <a name="user-content-search-where-price--200-and-id--1-or-id--16" class="anchor" href="#search-where-price--200-and-id--1-or-id--16" aria-hidden="true"><span class="octicon octicon-link"></span></a>Search where Price = 200 and Id = 1 Or Id = 16</h5>
+
+            <pre>    self.Search()
+            .filter({Price:200,Id:[1,16]})
+            .stringify() // Or    
+    self.Search()
+            .filter({Id:[1,16],Price:200})
+            .stringify()    
+</pre>
+
+            <h4>
+                <a name="user-content-filter-with-custom-value" class="anchor" href="#filter-with-custom-value" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filter with custom value</h4>
+
+            <h5>
+                <a name="user-content-search-where-rate--4" class="anchor" href="#search-where-rate--4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Search where Rate &gt; 4</h5>
+
+            <pre>    self.Search()
+            .filter({Rate:{value:4,condition:'&gt;'}})
+            .stringify()    
+</pre>
+
+            <h4>
+                <a name="user-content-filter-chaining-" class="anchor" href="#filter-chaining-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filter Chaining </h4>
+
+            <h5>
+                <a name="user-content-and-and-or-coditions-can-be-used-using-chaining-method" class="anchor" href="#and-and-or-coditions-can-be-used-using-chaining-method" aria-hidden="true"><span class="octicon octicon-link"></span></a>And and Or coditions can be used using chaining method</h5>
+
+            <pre>    self.Search()
+            .filter({Rate:[4,5]})
+            .filter({Id:{value:8,condition:'&gt;'}})
+            .stringify()    
+</pre>
+
+            <h4>
+                <a name="user-content-filter-with-multiple-custom-values" class="anchor" href="#filter-with-multiple-custom-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filter with multiple custom values</h4>
+
+            <h5>
+                <a name="user-content-for-multiple-custom-values-only-chaining-method-will-work" class="anchor" href="#for-multiple-custom-values-only-chaining-method-will-work" aria-hidden="true"><span class="octicon octicon-link"></span></a>For multiple custom values only chaining method will work</h5>
+
+            <pre>    self.Search()
+            .filter({Price:{value:200,condition:'&gt;'}})
+            .filter({Id:{value:15,condition:'&lt;'}})
+            .stringify()    
+</pre>
+
+            <h5>
+                <a name="user-content-for-multiple-custom-values-this-will-not-work-and-bring-undesired-results" class="anchor" href="#for-multiple-custom-values-this-will-not-work-and-bring-undesired-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>For multiple custom values this will not work and bring undesired results</h5>
+
+            <pre>    self.Search()
+            .filter(
+                {
+                    Price:{value:200,condition:'&gt;'},
+                    Id:{value:15,condition:'&lt;'}
+                })
+            .stringify()    
+    self.Search()
+            .filter(
+                {
+                    Price:{value:200,condition:'&gt;'}
+                },{
+                    Id:{value:15,condition:'&lt;'}
+                })
+            .stringify()        
+</pre>
+
+            <h3>
+                <a name="user-content-selecting-record-columns" class="anchor" href="#selecting-record-columns" aria-hidden="true"><span class="octicon octicon-link"></span></a>Selecting Record Columns</h3>
+
+            <h4>
+                <a name="user-content-select-specific-columns-note-the-order" class="anchor" href="#select-specific-columns-note-the-order" aria-hidden="true"><span class="octicon octicon-link"></span></a>Select specific columns. Note the Order</h4>
+
+            <h5>
+                <a name="user-content-select-only-name-and-price-columns" class="anchor" href="#select-only-name-and-price-columns" aria-hidden="true"><span class="octicon octicon-link"></span></a>Select Only Name and Price columns</h5>
+
+            <pre>    self.Search().select(['Name','Price']).stringify()    
+</pre>
+
+            <h5>
+                <a name="user-content-if-you-need-any-column-in-filter-you-must-use-it-in-select-with-filter-use-select-after-filter-for-fast-search" class="anchor" href="#if-you-need-any-column-in-filter-you-must-use-it-in-select-with-filter-use-select-after-filter-for-fast-search" aria-hidden="true"><span class="octicon octicon-link"></span></a>If you need any column in filter you must use it in select. With filter, use select after filter for fast search</h5>
+
+            <pre>    self.Search()
+            .filter({Price:{value:200,condition:'&gt;'}})
+            .select(['Name','Price'])
+            .stringify()    
+</pre>
+
+            <p>
+                Note : If you need any column in filter you must use it in select
+            </p>
+
+            <h4>
+                <a name="user-content-get-records-with-max-value" class="anchor" href="#get-records-with-max-value" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get Records with Max Value</h4>
+
+            <h5>
+                <a name="user-content-get-records-with-max-rate" class="anchor" href="#get-records-with-max-rate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get records with MAX Rate</h5>
+
+            <pre>    self.Search().max('Rate').stringify()    
+</pre>
+
+            <h5>
+                <a name="user-content-get-only-second-record-with-max-rate-although-you-can-use-start-and-limit" class="anchor" href="#get-only-second-record-with-max-rate-although-you-can-use-start-and-limit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get only second record with MAX Rate. Although you can use start() and limit()</h5>
+
+            <pre>    self.Search().max('Rate').index(2).stringify()    
+</pre>
+
+            <h4>
+                <a name="user-content-get-records-with-min-value" class="anchor" href="#get-records-with-min-value" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get Records with Min Value</h4>
+
+            <h5>
+                <a name="user-content-get-records-with-min-rate" class="anchor" href="#get-records-with-min-rate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get records with Min Rate</h5>
+
+            <pre>    self.Search().min('Rate').stringify()    
+</pre>
+
+            <h5>
+                <a name="user-content-get-only-second-record-with-min-rate-although-you-can-use-start-and-limit" class="anchor" href="#get-only-second-record-with-min-rate-although-you-can-use-start-and-limit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get only second record with MIN Rate. Although you can use start() and limit()</h5>
+
+            <pre>    self.Search().min('Rate').index(2).stringify()    
+</pre>
+
+            <h4>
+                <a name="user-content-sort-records" class="anchor" href="#sort-records" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sort Records</h4>
+
+            <h5>
+                <a name="user-content-sort-records-with-property-pass-true-as-second-parameter-if-you-want-the-results-reversed" class="anchor" href="#sort-records-with-property-pass-true-as-second-parameter-if-you-want-the-results-reversed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sort Records with property, Pass true as second parameter if you want the results reversed</h5>
+
+            <pre>    self.Search().order('Rate').stringify()    
+    self.Search().order('Rate',true).stringify()    
+</pre>
+
+            <h5>
+                <a name="user-content-sort-records-with-multiple-properties-pass-true-as-second-parameter-if-you-want-the-results-reversed" class="anchor" href="#sort-records-with-multiple-properties-pass-true-as-second-parameter-if-you-want-the-results-reversed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sort Records with multiple properties, Pass true as second parameter if you want the results reversed</h5>
+
+            <pre>    self.Search().order('Rate').order('Id').stringify()    
+    self.Search().order('Rate',true).order('Id',true).stringify()    
+</pre>
+
+            <h3>
+                <a name="user-content-applying-functions" class="anchor" href="#applying-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Applying Functions</h3>
+
+            <h4>
+                <a name="user-content-apply-callback" class="anchor" href="#apply-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>Apply callback</h4>
+
+            <h5>
+                <a name="user-content-userdata-is-the-data-you-provided" class="anchor" href="#userdata-is-the-data-you-provided" aria-hidden="true"><span class="octicon octicon-link"></span></a>userData() is the data you provided</h5>
+
+            <pre>    self.Search()
+        .callback(function(){
+            self.db().userData().push({Id:21,Rate:8,Price:400,Name:'Myths'})
+        })
+        .stringify()    
+</pre>
+
+            <h4>
+                <a name="user-content-apply-map-function" class="anchor" href="#apply-map-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Apply Map Function</h4>
+
+            <h5>
+                <a name="user-content-map-function-will-be-applied-on-each-object-of-data-same-like-javascript-map" class="anchor" href="#map-function-will-be-applied-on-each-object-of-data-same-like-javascript-map" aria-hidden="true"><span class="octicon octicon-link"></span></a>map() function will be applied on each object of data. Same like javascript map</h5>
+
+            <pre>    self.Search()
+        .map(function(item){
+            item.Action = true
+        })
+        .stringify()    
+</pre>
+
+            <h4>
+                <a name="user-content-apply-multiple-functions" class="anchor" href="#apply-multiple-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Apply multiple Functions</h4>
+
+            <h5>
+                <a name="user-content-each-function-will-be-applied-on-each-object-of-data-takes-array-of-functions-as-parameter" class="anchor" href="#each-function-will-be-applied-on-each-object-of-data-takes-array-of-functions-as-parameter" aria-hidden="true"><span class="octicon octicon-link"></span></a>each() function will be applied on each object of data. Takes array of functions as parameter</h5>
+
+            <pre>    var func = [
+            function(item){return item.Action = item.Price &gt; 200},
+            function(item){item.Level = 'High'},
+    ]
+    self.Search().each(func).stringify()    
+</pre>
+
+            <h4>
+                <a name="user-content-tempalte-functions" class="anchor" href="#tempalte-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tempalte Functions</h4>
+
+            <h5>
+                <a name="user-content-supplant-function-will-be-applied-on-each-object-of-data-takes-html-template-string" class="anchor" href="#supplant-function-will-be-applied-on-each-object-of-data-takes-html-template-string" aria-hidden="true"><span class="octicon octicon-link"></span></a>supplant() function will be applied on each object of data. Takes html template string</h5>
+
+
+            <pre>    self.Search()
+            .supplant('<span class="nt">&lt;option</span> <span class="na">id=</span><span class="s">{Id}</span><span class="nt">&gt;</span>{Name}<span class="nt">&lt;/option&gt;</span>')
+            .stringify()
+</pre>
+
+
+            <h5>
+                <a name="user-content-in-each-object-a-new-property-template-will-be-added-which-will-have-html-string" class="anchor" href="#in-each-object-a-new-property-template-will-be-added-which-will-have-html-string" aria-hidden="true"><span class="octicon octicon-link"></span></a>In each object a new property template will be added which will have html string</h5>
+
+
+            <pre>    item.template = '<span class="nt">&lt;option</span> <span class="na">id=</span><span class="s">'1'</span><span class="nt">&gt;</span>History<span class="nt">&lt;/option&gt;</span>'
+</pre>
+
+        </article>
+
+
+        <footer>
+            <p>Project maintained by <a href="https://github.com/raheelshan">raheelshan</a></p>
+            <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+        </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
-  </body>
+
+</body>
 </html>
