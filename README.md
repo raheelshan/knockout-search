@@ -102,7 +102,7 @@ Now the object is available. we can easily search.
 
 <h3>Searching Records</h3>
 
-<h4>Simple codition to filter records    </h4>
+<h4>Simple condition to filter records    </h4>
 <h5>Search where Price = 200</h5>
 <pre>
 	self.Search()
@@ -110,7 +110,7 @@ Now the object is available. we can easily search.
 			.stringify()    
 </pre>
 
-<h4>Simple and codition to filter records</h4>
+<h4>Simple and condition to filter records</h4>
 <h5>Search where Price = 200 and Rate = 5</h5>
 <pre>
 	self.Search()
@@ -118,7 +118,7 @@ Now the object is available. we can easily search.
 			.stringify()    
 </pre>
 
-<h4>Simple or codition to filter records</h4>
+<h4>Simple or condition to filter records</h4>
 <h5>Search where Rate = 4 or Rate = 5</h5>
 <pre>
 	self.Search()
@@ -126,7 +126,7 @@ Now the object is available. we can easily search.
 			.stringify()    
 </pre>
 
-<h4>And and Or codition to filter records</h4>
+<h4>And and Or condition to filter records</h4>
 <h5>Search where Price = 200 and Id = 1 Or Id = 16</h5>
 
 <pre>
