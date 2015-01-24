@@ -16,11 +16,11 @@ knockout-search-js
 Create a variable and pass the observable array to database object
 
 <pre>
-	var myobject = ko.search.setData(self.Books())    
+	var myobject = ko.search.setData(self.Books())
 	self.Search(myobject)
 </pre>
 
-Now the object is available. we can easily search. 
+Now the object is available. we can easily search.
 
 <h2>How to provide input</h2>
 
@@ -33,9 +33,9 @@ Now the object is available. we can easily search.
 </ul>
 
 <pre>
-	var myobject = ko.search.setData(self.Books()) // obervableArray    
-	var myobject = ko.search.setData(books) // Array of objects    
-	var myobject = ko.search.setData(booksJson) // json string of array of objects    
+	var myobject = ko.search.setData(self.Books()) // obervableArray
+	var myobject = ko.search.setData(books) // Array of objects
+	var myobject = ko.search.setData(booksJson) // json string of array of objects
 </pre>
 
 <h2>How to obtain search results</h2>
@@ -49,12 +49,12 @@ Now the object is available. we can easily search.
 </ul>
 
 <pre>
-	self.Search().get() // returns observable array      
-	self.Search().get(true) // returns array of objects       
-	self.Search().stringify() // returns array of objects in json string    
+	self.Search().get() // returns observable array
+	self.Search().get(true) // returns array of objects
+	self.Search().stringify() // returns array of objects in json string
 </pre>
 
-<p>Note : If you pass array of objects as parameter you will get array of objects instead of observable array in first example using .get()</p>    
+<p>Note : If you pass array of objects as parameter you will get array of objects instead of observable array in first example using .get()</p>
 
 <p>Note : I will be using `.stringify()` in the later example but you can choose any</p>
 
@@ -65,9 +65,9 @@ Now the object is available. we can easily search.
 <h4>Get All Records</h4>
 
 <pre>
-	self.Search().get()  // Or     
-	self.Search().get(true) // Or    
-	self.Search().stringify()    
+	self.Search().get()  // Or
+	self.Search().get(true) // Or
+	self.Search().stringify()
 </pre>
 
 <h4>Get first record</h4>
@@ -102,40 +102,40 @@ Now the object is available. we can easily search.
 
 <h3>Searching Records</h3>
 
-<h4>Simple codition to filter records    </h4>
+<h4>Simple condition to filter records    </h4>
 <h5>Search where Price = 200</h5>
 <pre>
 	self.Search()
 			.filter({Price:200})
-			.stringify()    
+			.stringify()
 </pre>
 
-<h4>Simple and codition to filter records</h4>
+<h4>Simple and condition to filter records</h4>
 <h5>Search where Price = 200 and Rate = 5</h5>
 <pre>
 	self.Search()
 			.filter({Price:200,Rate:5})
-			.stringify()    
+			.stringify()
 </pre>
 
-<h4>Simple or codition to filter records</h4>
+<h4>Simple or condition to filter records</h4>
 <h5>Search where Rate = 4 or Rate = 5</h5>
 <pre>
 	self.Search()
 			.filter({Rate:[4,5]})
-			.stringify()    
+			.stringify()
 </pre>
 
-<h4>And and Or codition to filter records</h4>
+<h4>And and Or condition to filter records</h4>
 <h5>Search where Price = 200 and Id = 1 Or Id = 16</h5>
 
 <pre>
 	self.Search()
 			.filter({Price:200,Id:[1,16]})
-			.stringify() // Or    
+			.stringify() // Or
 	self.Search()
 			.filter({Id:[1,16],Price:200})
-			.stringify()    
+			.stringify()
 </pre>
 
 <h4>Filter with custom value</h4>
@@ -143,16 +143,16 @@ Now the object is available. we can easily search.
 <pre>
 	self.Search()
 			.filter({Rate:{value:4,condition:'>'}})
-			.stringify()    
+			.stringify()
 </pre>
 
 <h4>Filter Chaining	</h4>
-<h5>And and Or coditions can be used using chaining method</h5>
+<h5>And and Or conditions can be used using chaining method</h5>
 <pre>
 	self.Search()
 			.filter({Rate:[4,5]})
 			.filter({Id:{value:8,condition:'>'}})
-			.stringify()    
+			.stringify()
 </pre>
 
 <h4>Filter with multiple custom values</h4>
@@ -161,17 +161,17 @@ Now the object is available. we can easily search.
 	self.Search()
 			.filter({Price:{value:200,condition:'>'}})
 			.filter({Id:{value:15,condition:'&#60;'}})
-			.stringify()    
+			.stringify()
 </pre>
 
 <h5>For multiple custom values this will not work and bring undesired results</h5>
 <pre>
 	self.Search()
 			.filter({Price:{value:200,condition:'>'},Id:{value:15,condition:'&#60;'}})
-			.stringify()    
+			.stringify()
 	self.Search()
 			.filter({Price:{value:200,condition:'>'}},{Id:{value:15,condition:'&#60;'}})
-			.stringify()   		
+			.stringify()
 </pre>
 
 <h3>Selecting Record Columns</h3>
@@ -179,7 +179,7 @@ Now the object is available. we can easily search.
 <h4>Select specific columns. Note the Order</h4>
 <h5>Select Only Name and Price columns</h5>
 <pre>
-	self.Search().select(['Name','Price']).stringify()    
+	self.Search().select(['Name','Price']).stringify()
 </pre>
 
 <h5>If you need any column in filter you must use it in select. With filter, use select after filter for fast search</h5>
@@ -187,7 +187,7 @@ Now the object is available. we can easily search.
 	self.Search()
 			.filter({Price:{value:200,condition:'>'}})
 			.select(['Name','Price'])
-			.stringify()    
+			.stringify()
 </pre>
 
 <p>
@@ -197,36 +197,36 @@ Now the object is available. we can easily search.
 <h4>Get Records with Max Value</h4>
 <h5>Get records with MAX Rate</h5>
 <pre>
-	self.Search().max('Rate').stringify()    
+	self.Search().max('Rate').stringify()
 </pre>
 
 <h5>Get only second record with MAX Rate. Although you can use start() and limit()</h5>
 <pre>
-	self.Search().max('Rate').index(2).stringify()    
+	self.Search().max('Rate').index(2).stringify()
 </pre>
 
 <h4>Get Records with Min Value</h4>
 <h5>Get records with Min Rate</h5>
 <pre>
-	self.Search().min('Rate').stringify()    
+	self.Search().min('Rate').stringify()
 </pre>
 
 <h5>Get only second record with MIN Rate. Although you can use start() and limit()</h5>
 <pre>
-	self.Search().min('Rate').index(2).stringify()    
+	self.Search().min('Rate').index(2).stringify()
 </pre>
 
 <h4>Sort Records</h4>
 <h5>Sort Records with property, Pass true as second parameter if you want the results reversed</h5>
 <pre>
-	self.Search().order('Rate').stringify()    
-	self.Search().order('Rate',true).stringify()    
+	self.Search().order('Rate').stringify()
+	self.Search().order('Rate',true).stringify()
 </pre>
 
 <h5>Sort Records with multiple properties, Pass true as second parameter if you want the results reversed</h5>
 <pre>
-	self.Search().order('Rate').order('Id').stringify()    
-	self.Search().order('Rate',true).order('Id',true).stringify()    
+	self.Search().order('Rate').order('Id').stringify()
+	self.Search().order('Rate',true).order('Id',true).stringify()
 </pre>
 
 <h3>Applying Functions</h3>
@@ -238,7 +238,7 @@ Now the object is available. we can easily search.
 		.callback(function(){
 			self.db().userData().push({Id:21,Rate:8,Price:400,Name:'Myths'})
 		})
-		.stringify()    
+		.stringify()
 </pre>
 
 <h4>Apply Map Function</h4>
@@ -248,7 +248,7 @@ Now the object is available. we can easily search.
 		.map(function(item){
 			item.Action = true
 		})
-		.stringify()    
+		.stringify()
 </pre>
 
 <h4>Apply multiple Functions</h4>
@@ -258,7 +258,7 @@ Now the object is available. we can easily search.
 			function(item){return item.Action = item.Price > 200},
 			function(item){item.Level = 'High'},
 	]
-	self.Search().each(func).stringify()    
+	self.Search().each(func).stringify()
 </pre>
 
 <h4>Tempalte Functions</h4>
